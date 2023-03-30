@@ -121,6 +121,7 @@ function animalNames() {
   }
   
   
+  
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
   Use the higher-order function called consume to do the following:
@@ -129,9 +130,9 @@ function animalNames() {
     
     💡 NOTE: The tests for 'consume' will pass if it is created correctly and also after you correctly complete the functions 'add' and 'greeting' below in Step 2.
   */
-
+console.log('hello?')
   function consume(a, b, cb){
-    return cb(a, b)
+    return cb(a, b);
   }
  
   
@@ -142,20 +143,22 @@ function animalNames() {
  2. Return the sum of those numbers
  */
 
-function add() {
-
+function add(number1, number2) {
+return number1 + number2;
 }
-  
 
+console.log('add', add(1,3))
 
 /* Use multiply to do the following:
 1. Receive two numbers as an argument that are passed in from its first and second parameters
 2. Return the product of those numbers
 */
 
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+function multiply(number1, number2){
+   return number1 * number2;
   }
+
+  console.log('multiply', multiply(2,2))
 
 
  /* Use greeting to do the following:
@@ -164,16 +167,18 @@ function multiply(/*Your Code Here */){
 💡 NOTE: The string returned must match the format above or the test will not pass!
 */
 
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
+function greeting(firstName, lastName){
+   return `Hello ${firstName} ${lastName}, nice to meet you!`;
   }
+
+console.log('greeting', greeting('first', 'last'))
   
   
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2, 2, add)); // 4
+console.log(consume(10, 16, multiply)); // 160
+console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
@@ -202,7 +207,7 @@ function CuboidMaker(attrs){
   💡 NOTE: Formula for cuboid volume: length * width * height   
 */
 CuboidMaker.prototype.calculatevolume = function() {
-  console.log(`volume ${this.name} is ${this.length*width*height}`)
+  // console.log(``)
 }
 
 
