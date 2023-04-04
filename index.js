@@ -32,14 +32,14 @@ const external = "I'm outside the function";
 
 function summation(number1){
 
-  let count = 0
-  for (let i = 0; i < number1; i++ ) {
-    count = count +1
-    return 55
+  let count = 0;
+  for (let i = 1; i <= number1; i++ ) {
+    count = count +i;
   }
+  return count;
 }
  
-// console.log(summation(4));
+console.log(summation(4));
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
 
@@ -64,8 +64,12 @@ const zooAnimals = [
   💡 NOTE: the array returned should be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-function animalNames() {
-
+function animalNames(zooAnimals) {
+   const newArray = [];
+   zooAnimals.forEach(function(zooData){
+    newArray.push(`name: ${zooData.animal_name}, scientific: ${zooData.scientific_name}`)
+   })
+   return newArray;
 }
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -121,6 +125,7 @@ function animalNames() {
   }
   
   
+  
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
   Use the higher-order function called consume to do the following:
@@ -129,9 +134,9 @@ function animalNames() {
     
     💡 NOTE: The tests for 'consume' will pass if it is created correctly and also after you correctly complete the functions 'add' and 'greeting' below in Step 2.
   */
-
+// console.log('hello?')
   function consume(a, b, cb){
-    return cb(a, b)
+    return cb(a, b);
   }
  
   
@@ -142,20 +147,22 @@ function animalNames() {
  2. Return the sum of those numbers
  */
 
-function add() {
-
+function add(number1, number2) {
+return number1 + number2;
 }
-  
 
+// console.log('add', add(1,3))
 
 /* Use multiply to do the following:
 1. Receive two numbers as an argument that are passed in from its first and second parameters
 2. Return the product of those numbers
 */
 
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+function multiply(number1, number2){
+   return number1 * number2;
   }
+
+  console.log('multiply', multiply(2,2))
 
 
  /* Use greeting to do the following:
@@ -164,16 +171,18 @@ function multiply(/*Your Code Here */){
 💡 NOTE: The string returned must match the format above or the test will not pass!
 */
 
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
+function greeting(firstName, lastName){
+   return `Hello ${firstName} ${lastName}, nice to meet you!`;
   }
+
+console.log('greeting', greeting('first', 'last'))
   
   
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2, 2, add)); // 4
+console.log(consume(10, 16, multiply)); // 160
+console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
@@ -201,8 +210,8 @@ function CuboidMaker(attrs){
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   💡 NOTE: Formula for cuboid volume: length * width * height   
 */
-CuboidMaker.prototype.calculatevolume = function() {
-  console.log(`volume ${this.name} is ${this.length*width*height}`)
+CuboidMaker.prototype.volume = function() {
+    return this.length * this.width * this.height
 }
 
 
@@ -212,28 +221,36 @@ CuboidMaker.prototype.calculatevolume = function() {
   💡 NOTE: Formula for cuboid surface area: 2 * (length * width + length * height + width * height)  
 */
 
-
+CuboidMaker.prototype.surfaceArea = function() {
+  return 2 * (this.length * this.width + this.length * this.height + this.width * this.height)  
+}
 
 
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker (not auto graded)🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
-
+const cuboid = new CuboidMaker ({
+  length: 4,
+  width: 5,
+  height: 5
+})
 
 
 
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+console.log(cuboid.volume()); // 100/
+console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //Using CuboidMakerTwo, take your prototypes from above and refactor into class syntax. Then, create an object called cuboidTwo that uses the new keyword to use our CuboidMakerTwo class.
  
-class CuboidMakerTwo{
-
+class CuboidMakerTwo extends CuboidMaker{
+ constructor(cuboidMakerTwoAttrs) {
+  super(cuboidMakerTwoAttrs);
+ }
 }
 
 
